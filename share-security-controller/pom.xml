@@ -6,8 +6,8 @@
 		<artifactId>parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>share-view</artifactId>
-	<packaging>war</packaging>
+	<artifactId>share-security-controller</artifactId>
+	<packaging>jar</packaging>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -22,15 +22,16 @@
 					<port>1234</port>
 					<username>adel</username>
 					<password>seli1718</password>
-					<name>share.war</name>
+					<name>security-controller.jar</name>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.share</groupId>
-			<artifactId>share-security-controller</artifactId>
+			<artifactId>share-model</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
