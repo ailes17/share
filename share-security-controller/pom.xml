@@ -31,6 +31,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.share</groupId>
+			<artifactId>share-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.share</groupId>
 			<artifactId>share-model</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>

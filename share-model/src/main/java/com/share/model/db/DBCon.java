@@ -4,24 +4,38 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.inject.Inject;
+
+import com.share.common.annotations.Property;
+
 public class DBCon {
 
 	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-	static final String DB_URL = "jdbc:mariadb://192.168.100.174/db";
-
+	@Inject
+	@Property("model.jdbc.driver.name")
+	private String jdbcDriver;
+	
+	@Inject
+	@Property("model.db.url")
+	private String dbURL;
+	
 	// Database credentials
-	static final String USER = "adel";
-	static final String PASS = "adel123";
-
+	@Inject
+	@Property("model.db.username")
+	private String username;
+	
+	@Inject
+	@Property("model.db.password")
+	private String password;
+	
 	public Connection getConnection() {
 		Connection conn = null;
-		// STEP 2: Register JDBC driver
+		// Register JDBC driver
 		try {
-			Class.forName("org.mariadb.jdbc.Driver");
-			// STEP 3: Open a connection
+			Class.forName(jdbcDriver);
+			// Open a connection
 			System.out.println("Connecting to a selected database...");
-			conn = DriverManager.getConnection("jdbc:mariadb://localhost/share", USER, PASS);
+			conn = DriverManager.getConnection(dbURL, username, password);
 			System.out.println("Connected database successfully...");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
