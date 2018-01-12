@@ -9,24 +9,6 @@
 	<artifactId>share-security-controller</artifactId>
 	<packaging>jar</packaging>
 
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>1.1.0.Alpha5</version>
-				<configuration>
-					<skip>false</skip>
-					<hostname>192.168.2.21</hostname>
-					<port>1234</port>
-					<username>adel</username>
-					<password>seli1718</password>
-					<name>security-controller.jar</name>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 	
 	<dependencies>
 		<dependency>

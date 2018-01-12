@@ -7,9 +7,11 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>share-common</module>
 		<module>share-view</module>
 		<module>share-model</module>
 		<module>share-security-controller</module>
+		<module>share-ear</module>
 	</modules>
 
 	<build>
@@ -18,7 +20,7 @@
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>1.1.0.Alpha5</version>
+				<version>1.2.1.Final</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>
@@ -74,19 +76,25 @@
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.25</version>
+		</dependency>
+
 	</dependencies>
 
 
 
-	<distributionManagement>
-		<!-- Publish the versioned releases here -->
+	<!-- <distributionManagement>
+		Publish the versioned releases here
 		<repository>
 			<id>nexus_repo</id>
 			<name>maven releases</name>
 			<url>http://localhost:8888/repository/maven-releases/</url>
 		</repository>
 
-		<!-- Publish the versioned releases here -->
+		Publish the versioned releases here
 		<snapshotRepository>
 			<id>nexus_repo</id>
 			<name>maven snapshots</name>
@@ -94,7 +102,7 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-	<!-- download artifacts from this repo -->
+	download artifacts from this repo
 	<repositories>
 		<repository>
 			<id>nexus_repo</id>
@@ -108,5 +116,5 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories>
+	</repositories> -->
 </project>

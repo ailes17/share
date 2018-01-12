@@ -1,5 +1,6 @@
 package com.share.model.db;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,9 +8,18 @@ import java.sql.SQLException;
 import javax.inject.Inject;
 
 import com.share.common.annotations.Property;
+import com.share.common.producers.PropertyProducer;
 
-public class DBCon {
+public class DBCon implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8550057842669941756L;
+
+	@Inject
+	public PropertyProducer propertyProducer;
+	
 	// JDBC driver name and database URL
 	@Inject
 	@Property("model.jdbc.driver.name")

@@ -8,7 +8,11 @@ import java.sql.ResultSet;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.share.model.db.DBCon;
 
@@ -16,15 +20,19 @@ import com.share.model.db.DBCon;
 @SessionScoped
 public class LoginDAO implements Serializable {  
 
+	@Inject
+	private DBCon dbcon;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5035823934131184074L;
 
+	private final static Logger LOG = LoggerFactory.getLogger(LoginDAO.class);
+	
 	public boolean login(String user, String password) {
+		LOG.info("login");
 		Connection con = null;
 		PreparedStatement ps = null;
-		DBCon dbcon = new DBCon();
 		try {
 			con = dbcon.getConnection();
 			ps = con.prepareStatement(
