@@ -86,15 +86,15 @@
 
 
 
-	<!-- <distributionManagement>
-		Publish the versioned releases here
+	<distributionManagement>
+		<!-- Publish the versioned releases here -->
 		<repository>
 			<id>nexus_repo</id>
 			<name>maven releases</name>
 			<url>http://localhost:8888/repository/maven-releases/</url>
 		</repository>
 
-		Publish the versioned releases here
+		<!-- Publish the versioned releases here -->
 		<snapshotRepository>
 			<id>nexus_repo</id>
 			<name>maven snapshots</name>
@@ -102,7 +102,7 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-	download artifacts from this repo
+	<!-- download artifacts from this repo -->
 	<repositories>
 		<repository>
 			<id>nexus_repo</id>
@@ -116,5 +116,5 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories> -->
+	</repositories>
 </project>
