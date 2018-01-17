@@ -43,13 +43,9 @@ public class LoginDAO implements Serializable {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) // found
 			{
-				System.out.println(rs.getString("username"));
 				return true;
 			}
 			else {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-						"LoginDAO!",
-						"Wrong password message test!"));
 				return false;
 			}
 		} 

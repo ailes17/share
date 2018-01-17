@@ -8,56 +8,48 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<ui:include src="templates/headerTemplate.xhtml" />
 	<title>Login Page</title>
-	<link type="text/css"
-		href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
-		rel="stylesheet" />
-	<link type="image/x-icon"
-		href="${facesContext.externalContext.requestContextPath}/resources/images/favicon.ico"
-		rel="shortcut icon" />
 </h:head>
 
 <h:body>
-	<div id="message">
-		<p:ajaxStatus style="display:block;  margin-top:.5em;">
-			<f:facet name="default">
-				<h:outputText value="Please enter your credentials." />
-			</f:facet>
-			<f:facet name="start">
-				<h:outputText
-					value="Please wait #{loginBean.uname}, Connecting database..." />
-			</f:facet>
-			<f:facet name="complete">
-				<h:outputText
-					value="Please try again #{loginBean.uname}, Database/Login error!!" />
-			</f:facet>
-		</p:ajaxStatus>
-	</div>
+	<div class="valign-wrapper" style="height:657px;">
+		<div class="container">
+			<div class="center-align">
+				<div class="row">
+					<div class="col s6 offset-s3">
+						<div class="card">
+							<div class="card-content">
+								<div class="left-align">
+									<h:form id="loginForm">
+										<p:growl autoUpdate="true" id="growl"/>
 
-	<h:form id="loginForm">
-		<p:growl id="msg" showDetail="true" life="4000" />
-		<p:panel id="loginPnl" header="Login"
-			style="width: 350px; margin: 0 auto;">
-			<h:panelGrid id="loginPanel" columns="2" cellpadding="5">
-				<h:outputText value="Username" />
-				<p:inputText id="username" value="#{loginBean.uname}"></p:inputText>
-				<p:spacer />
-				<p:spacer />
-				<h:outputText value="Password" />
-				<p:password id="password" value="#{loginBean.password}"
-					feedback="false"></p:password>
-				<p:message for="password"></p:message>
-			</h:panelGrid>
-			<h:panelGrid columns="1" cellpadding="10" width="100%">
-				<p:commandButton id="loginButton" action="#{loginBean.loginProject}"
-					value="Login" update="loginForm" ajax="true" style="float: right;">
-				</p:commandButton>
-			</h:panelGrid>
-		</p:panel>
-		<p:blockUI block="loginPnl" trigger="loginButton" style="float:right;">
-			<p:graphicImage value="resources/images/loader.gif" />
-		</p:blockUI>
-	</h:form>
+										<div class="row">
+											<div class="col s12 input-field">
+												<p:inputText id="email" type="email" styleClass="validate"
+													value="#{loginBean.uname}" />
+												<p:outputLabel for="email" value="Email" styleClass="active"/>
+											</div>
+
+											<div class="input-field col s12">
+												<p:inputText id="password" type="password" styleClass="validate"
+													value="#{loginBean.password}" feedback="false" />
+												<p:outputLabel for="password" value="Password" styleClass="active"/>
+											</div>
+											<div class="input-field col s12">
+												<p:commandButton styleClass="btn"
+													actionListener="#{loginBean.loginProject}" value="Login"
+													update="loginForm" ajax="true" />
+											</div>
+										</div>
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </h:body>
 </html>
