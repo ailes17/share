@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+		<h:form>
+			<ul id="dropdown1" class="dropdown-content">
+				<li><a href="#!">Profile</a></li>
+				<li><a href="#!">Help</a></li>
+				<li class="divider"></li>
+				<li><p:commandLink action="#{loginBean.logout}" value="Disconnect" /></li>
+			</ul>
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#!" class="brand-logo">Logo</a>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="http://www.google.fr">Google</a></li>
+		
+						<ui:fragment rendered="#{loginBean.connected}">
+							<!-- Dropdown Trigger -->
+							<li>
+								<a class="dropdown-button" href="#!" data-activates="dropdown1">
+									#{username}
+									<i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
+						</ui:fragment>
+					</ul>
+				</div>
+			</nav>
+		</h:form>
+	</ui:composition>
+</body>
+</html>

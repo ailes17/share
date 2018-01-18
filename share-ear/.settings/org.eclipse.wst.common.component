@@ -20,6 +20,9 @@
         <dependent-module archiveName="primefaces-6.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/primefaces/primefaces/6.1/primefaces-6.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="blitzer-1.0.10.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/primefaces/themes/blitzer/1.0.10/blitzer-1.0.10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="slf4j-api-1.7.25.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>

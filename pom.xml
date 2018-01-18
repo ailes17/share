@@ -72,6 +72,11 @@
 			<version>6.1</version>
 		</dependency>
 		<dependency>
+    <groupId>org.primefaces.themes</groupId>
+    <artifactId>blitzer</artifactId>
+    <version>1.0.10</version>
+</dependency>
+		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-api</artifactId>
 		    <version>1.7.25</version>
@@ -97,19 +102,5 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-	<!-- download artifacts from this repo -->
-	<repositories>
-		<repository>
-			<id>nexus_repo</id>
-			<name>maven public</name>
-			<url>http://localhost:8888/repository/maven-public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
 
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>

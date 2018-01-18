@@ -13,10 +13,13 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.share.view.constants.PageNames;
  
-//@WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
+@WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
 public class AuthFilter implements Filter {
      
+	
     public AuthFilter() {
     }
  
@@ -40,12 +43,23 @@ public class AuthFilter implements Filter {
                 res.setDateHeader("Expires", 0); // Proxies.
             }
             
-            //  allow user to proceed if url is login.xhtml or user logged in or user is accessing any page in //public folder
             String reqURI = req.getRequestURI();
-            if ( reqURI.indexOf("/login.xhtml") >= 0 || (ses != null && ses.getAttribute("username") != null))
-                   chain.doFilter(request, response);
-            else   // user didn't log in but asking for a page that is not allowed so take user to login page
-                   res.sendRedirect(req.getContextPath() + "/login.xhtml");  // Anonymous user. Redirect to login page
+            
+            
+            if (isUserConnected(ses)) {
+            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
+            		res.sendRedirect(req.getContextPath() + PageNames.INDEX_PAGE);
+            	} else {
+            		chain.doFilter(request, response);
+            	}
+            } else {
+            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
+            		chain.doFilter(request, response);
+            	} else {
+            		res.sendRedirect(req.getContextPath() + PageNames.LOGIN_PAGE);
+            	}
+            }
+            
       }
      catch(Throwable t) {
          System.out.println( t.getMessage());
@@ -55,5 +69,9 @@ public class AuthFilter implements Filter {
     @Override
     public void destroy() {
          
+    }
+    
+    private boolean isUserConnected(final HttpSession ses) {
+    	return (ses != null && ses.getAttribute("username") != null) ? true : false;
     }
 }

@@ -18,18 +18,10 @@ public class LoginBean implements Serializable {
  
     private static final long serialVersionUID = 1L;
     private String password;
-    private String message, uname;
+    private String uname;
     
     @Inject
     private Login login;
- 
-    public String getMessage() {
-        return message;
-    }
- 
-    public void setMessage(String message) {
-        this.message = message;
-    }
  
     public String getPassword() {
         return password;
@@ -46,6 +38,7 @@ public class LoginBean implements Serializable {
     public void setUname(String uname) {
         this.uname = uname;
     }
+    
  
     public String loginProject() {
         boolean result = login.login(uname, password);
@@ -54,19 +47,23 @@ public class LoginBean implements Serializable {
             // get Http Session and store username
             HttpSession session = Util.getSession();
             session.setAttribute("username", uname);            
-            return "index";
+            return "index.xhtml?faces-redirect=true";
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Invalid Login!", "Please Try Again!"));
+            FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Invalid Login!", "Please Try Again!"));
             
              // invalidate session, and redirect to other pages
              //message = "Invalid Login. Please Try Again!";
-            return "login";
+            return null;
         }
+    }
+    
+    public boolean isConnected() {
+    	return (Util.getSession() != null && Util.getSession().getAttribute("username") != null) ? true : false;
     }
  
     public String logout() {
       HttpSession session = Util.getSession();
       session.invalidate();
-      return "login";
+      return "login.xhtml?faces-redirect=true";
    }
 }
