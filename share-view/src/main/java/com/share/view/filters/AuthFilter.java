@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.share.view.constants.PageNames;
  
-@WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
+@WebFilter(filterName = "AuthFilter", urlPatterns = {"/filtered/*"})
 public class AuthFilter implements Filter {
      
 	
