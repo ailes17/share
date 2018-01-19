@@ -9,32 +9,29 @@
 
 <body>
 	<ui:composition>
-		<h:form>
-			<ul id="dropdown1" class="dropdown-content">
-				<li><a href="#!">Profile</a></li>
-				<li><a href="#!">Help</a></li>
-				<li class="divider"></li>
-				<li><p:commandLink action="#{loginBean.logout}" value="Disconnect" /></li>
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="#!">Profile</a></li>
+			<li><a href="#!">Help</a></li>
+			<li class="divider"></li>
+			<li><p:commandLink action="#{loginBean.logout}"
+					value="Disconnect" ajax="false" /></li>
+		</ul>
+		<nav>
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo">Logo</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="http://www.google.fr">Google</a></li>
+
+				<ui:fragment rendered="#{loginBean.connected}">
+					<!-- Dropdown Trigger -->
+					<li><a class="dropdown-button" href="#!"
+						data-activates="dropdown1"> #{username} <i
+							class="material-icons right">arrow_drop_down</i>
+					</a></li>
+				</ui:fragment>
 			</ul>
-			<nav>
-				<div class="nav-wrapper">
-					<a href="#!" class="brand-logo">Logo</a>
-					<ul class="right hide-on-med-and-down">
-						<li><a href="http://www.google.fr">Google</a></li>
-		
-						<ui:fragment rendered="#{loginBean.connected}">
-							<!-- Dropdown Trigger -->
-							<li>
-								<a class="dropdown-button" href="#!" data-activates="dropdown1">
-									#{username}
-									<i class="material-icons right">arrow_drop_down</i>
-								</a>
-							</li>
-						</ui:fragment>
-					</ul>
-				</div>
-			</nav>
-		</h:form>
+		</div>
+		</nav>
 	</ui:composition>
 </body>
 </html>

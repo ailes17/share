@@ -13,61 +13,67 @@
 </h:head>
 
 <h:body>
-	<div class="valign-wrapper" style="height:657px;">
-		<div class="container">
-			<div class="center-align">
-				<div class="row">
-					<div class="col s6 offset-s3">
-						<div class="card">
-							<div class="card-content">
-								<div class="left-align">
-									<h:form id="newUserForm">
-										<p:growl autoUpdate="true" id="growl"/>
+	<h:form id="newUserForm">
+		<div class="valign-wrapper" style="height: 657px;">
+			<div class="container">
+				<div class="center-align">
+					<div class="row">
+						<div class="col s6 offset-s3">
+							<div class="card">
+								<div class="card-content">
+									<div class="left-align">
+										<p:growl autoUpdate="true" id="growl" />
 
 										<div class="row">
 											<div class="col s12 input-field">
 												<p:inputText id="email" type="email" styleClass="validate"
 													value="#{newUser.emailAddress}" />
-												<p:outputLabel for="email" value="Email *" styleClass="active"/>
+												<p:outputLabel for="email" value="Email *"
+													styleClass="active" />
 											</div>
 
 											<div class="input-field col s12">
-												<p:inputText id="password" type="password" styleClass="validate"
-													value="#{newUser.password}" feedback="false" />
-												<p:outputLabel for="password" value="Password *" styleClass="active"/>
+												<p:inputText id="password" type="password"
+													styleClass="validate" value="#{newUser.password}"
+													feedback="false" />
+												<p:outputLabel for="password" value="Password *"
+													styleClass="active" />
 											</div>
-											
+
 											<div class="input-field col s12">
-												<p:inputText id="firstName" type="text" styleClass="validate"
-													value="#{newUser.firstName}" feedback="false" />
-												<p:outputLabel for="firstName" value="FirstName" styleClass="active"/>
+												<p:inputText id="firstName" type="text"
+													styleClass="validate" value="#{newUser.firstName}"
+													feedback="false" />
+												<p:outputLabel for="firstName" value="FirstName"
+													styleClass="active" />
 											</div>
-											
+
 											<div class="input-field col s12">
 												<p:inputText id="lastName" type="text" styleClass="validate"
 													value="#{newUser.lastName}" feedback="false" />
-												<p:outputLabel for="lastName" value="LastName" styleClass="active"/>
+												<p:outputLabel for="lastName" value="LastName"
+													styleClass="active" />
 											</div>
-											
+
 											<div class="row">
-											
+
 												<div class="input-field col s4">
 													<p:commandButton styleClass="btn"
-														action="#{newUser.addUser}" value="Create"/>
+														action="#{newUser.addUser}" value="Create" />
 												</div>
-												
+
 												<div class="input-field col s4 center-align">
-													<p:commandButton styleClass="btn"
-														action="#{newUser.reset}" value="Reset"/>
+													<p:commandButton styleClass="btn" action="#{newUser.reset}"
+														value="Reset" />
 												</div>
-												
+
 												<div class="input-field col s4 right-align">
-													<p:commandButton styleClass="btn"
-														action="login.xhtml" value="Login"/>
+													<p:commandButton styleClass="btn" action="login.xhtml"
+														value="Login" />
 												</div>
 											</div>
 										</div>
-									</h:form>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -75,6 +81,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</h:form>
 </h:body>
 </html>

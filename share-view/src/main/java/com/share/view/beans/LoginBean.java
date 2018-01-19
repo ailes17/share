@@ -47,9 +47,9 @@ public class LoginBean implements Serializable {
             // get Http Session and store username
             HttpSession session = Util.getSession();
             session.setAttribute("username", uname);            
-            return "filtered/index.xhtml?faces-redirect=true";
+            return "/filtered/index.xhtml?faces-redirect=true";
         } else {
-            FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Invalid Login!", "Please Try Again!"));
+            FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Invalid Login"));
             
              // invalidate session, and redirect to other pages
              //message = "Invalid Login. Please Try Again!";
@@ -64,6 +64,6 @@ public class LoginBean implements Serializable {
     public String logout() {
       HttpSession session = Util.getSession();
       session.invalidate();
-      return "login.xhtml?faces-redirect=true";
+      return "/login.xhtml?faces-redirect=true";
    }
 }

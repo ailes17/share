@@ -13,47 +13,53 @@
 </h:head>
 
 <h:body>
-	<ui:include src="templates/navigationBar.xhtml" />
-	<div class="valign-wrapper" style="height:657px;">
-		<div class="container">
-			<div class="center-align">
-				<div class="row">
-					<div class="col s6 offset-s3">
-						<div class="card">
-							<div class="card-content">
-								<div class="left-align">
-									<h:form id="loginForm">
-										<p:messages for="loginForm" styleClass="red darken-4 white-text center-align"/>
-
+	<h:form id="loginForm">
+		<ui:include src="templates/navigationBar.xhtml" />
+		<div class="valign-wrapper" style="height: 657px;">
+			<div class="container">
+				<div class="center-align">
+					<div class="row">
+						<div class="col s6 offset-s3">
+							<div class="card">
+								<div class="card-content">
+									<div class="left-align">
 										<div class="row">
+											<p:message for="loginForm" styleClass="red darken-4 white-text center-align" display="text"/>
 											<div class="col s12 input-field">
 												<p:inputText id="email" type="email" styleClass="validate"
-													value="#{loginBean.uname}" required="true" requiredMessage="Email cannot be empty"/>
-												<p:outputLabel for="email" value="Email" styleClass="active"/>
-												<p:message for="email" styleClass="red darken-4 white-text center-align" display="text"/>
+													value="#{loginBean.uname}" required="true"
+													requiredMessage="Email cannot be empty" />
+												<p:outputLabel for="email" value="Email" styleClass="active" />
+												<p:message for="email"
+													styleClass="red darken-4 white-text center-align"
+													display="text" />
 											</div>
 
 											<div class="input-field col s12">
-												<p:inputText id="password" type="password" styleClass="validate"
-													value="#{loginBean.password}" required="true" requiredMessage="Password cannot be empty"/>
-												<p:outputLabel for="password" value="Password" styleClass="active"/>
-												<p:message for="password" styleClass="red darken-4 white-text center-align" display="text"/>
+												<p:inputText id="password" type="password"
+													styleClass="validate" value="#{loginBean.password}"
+													required="true" requiredMessage="Password cannot be empty" />
+												<p:outputLabel for="password" value="Password"
+													styleClass="active" />
+												<p:message for="password"
+													styleClass="red darken-4 white-text center-align"
+													display="text" />
 											</div>
-											
+
 											<div class="row">
-											
+
 												<div class="input-field col s6">
 													<p:commandButton styleClass="btn"
-														action="#{loginBean.loginProject}" value="Login"/>
+														action="#{loginBean.loginProject}" value="Login" update="loginForm"/>
 												</div>
-												
+
 												<div class="input-field col s6 right-align">
-													<p:commandButton styleClass="btn"
-														action="newUser.xhtml" value="New user" immediate="true"/>
+													<p:commandButton styleClass="btn" action="newUser.xhtml"
+														value="New user" immediate="true" />
 												</div>
 											</div>
 										</div>
-									</h:form>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -61,6 +67,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</h:form>
 </h:body>
 </html>
