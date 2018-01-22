@@ -17,20 +17,20 @@
 					value="Disconnect" ajax="false" /></li>
 		</ul>
 		<nav>
-		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo">Logo</a>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="http://www.google.fr">Google</a></li>
-
-				<ui:fragment rendered="#{loginBean.connected}">
-					<!-- Dropdown Trigger -->
-					<li><a class="dropdown-button" href="#!"
-						data-activates="dropdown1"> #{username} <i
-							class="material-icons right">arrow_drop_down</i>
-					</a></li>
-				</ui:fragment>
-			</ul>
-		</div>
+			<div class="nav-wrapper">
+				<a href="#!" class="brand-logo">Logo</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="http://www.google.fr">Google</a></li>
+	
+					<ui:fragment rendered="#{loginBean.connected}">
+						<!-- Dropdown Trigger -->
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown1"> #{username} <i
+								class="material-icons right">arrow_drop_down</i>
+						</a></li>
+					</ui:fragment>
+				</ul>
+			</div>
 		</nav>
 	</ui:composition>
 </body>

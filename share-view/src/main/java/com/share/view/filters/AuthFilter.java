@@ -56,7 +56,7 @@ public class AuthFilter implements Filter {
             	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
             		chain.doFilter(request, response);
             	} else {
-            		res.sendRedirect(req.getContextPath() + PageNames.LOGIN_PAGE);
+            		res.sendRedirect(req.getContextPath() + PageNames.LOGIN_PAGE + PageNames.FACES_REDIRECT);
             	}
             }
             

@@ -10,6 +10,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import com.share.security.login.Login;
+import com.share.view.constants.PageNames;
 import com.share.view.utils.Util;
  
 @Named
@@ -46,13 +47,10 @@ public class LoginBean implements Serializable {
 
             // get Http Session and store username
             HttpSession session = Util.getSession();
-            session.setAttribute("username", uname);            
-            return "/filtered/index.xhtml?faces-redirect=true";
+            session.setAttribute("username", uname);
+            return PageNames.INDEX_PAGE + PageNames.FACES_REDIRECT;
         } else {
             FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("Invalid Login"));
-            
-             // invalidate session, and redirect to other pages
-             //message = "Invalid Login. Please Try Again!";
             return null;
         }
     }
@@ -64,6 +62,6 @@ public class LoginBean implements Serializable {
     public String logout() {
       HttpSession session = Util.getSession();
       session.invalidate();
-      return "/login.xhtml?faces-redirect=true";
+      return PageNames.LOGIN_PAGE + PageNames.FACES_REDIRECT;
    }
 }
