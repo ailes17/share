@@ -5,7 +5,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sh="http://java.sun.com/jsf/composite/shareTags">
 
 <h:head>
 	<ui:include src="templates/headerTemplate.xhtml" />
@@ -20,19 +21,18 @@
 				<div class="center-align">
 					<div class="row">
 						<div class="col s6 offset-s3">
-							<div class="card">
+							<div class="card z-depth-5">
 								<div class="card-content">
+									<img src="/share/images/logo/share-icon-png-25.png" class="responsive-img" width="50"/>
 									<div class="left-align">
 										<div class="row">
-											<p:message for="loginForm" styleClass="red darken-4 white-text center-align" display="text"/>
+											<sh:messageTag forElementID="loginForm" />
 											<div class="col s12 input-field">
 												<p:inputText id="email" type="email" styleClass="validate"
 													value="#{loginBean.uname}" required="true"
 													requiredMessage="Email cannot be empty" />
 												<p:outputLabel for="email" value="Email" styleClass="active" />
-												<p:message for="email"
-													styleClass="red darken-4 white-text center-align"
-													display="text" />
+												<sh:messageTag forElementID="loginForm:email" />
 											</div>
 
 											<div class="input-field col s12">
@@ -41,9 +41,9 @@
 													required="true" requiredMessage="Password cannot be empty" />
 												<p:outputLabel for="password" value="Password"
 													styleClass="active" />
-												<p:message for="password"
-													styleClass="red darken-4 white-text center-align"
-													display="text" />
+												
+												<sh:messageTag forElementID="loginForm:password" />
+												
 											</div>
 
 											<div class="row">

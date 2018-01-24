@@ -5,7 +5,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sh="http://java.sun.com/jsf/composite/shareTags">
 
 <h:head>
 	<ui:include src="templates/headerTemplate.xhtml" />
@@ -20,10 +21,11 @@
 				<div class="center-align">
 					<div class="row">
 						<div class="col s6 offset-s3">
-							<div class="card">
+							<div class="card z-depth-5">
 								<div class="card-content">
+									<img src="/share/images/logo/share-icon-png-25.png" class="responsive-img" width="50"/>
 									<div class="left-align">
-										<p:message for="newUserForm" styleClass="red darken-4 white-text center-align" display="text"/>
+										<sh:messageTag forElementID="newUserForm" />
 										<div class="row">
 											<div class="col s12 input-field">
 												<p:inputText id="newUserEmail" type="email" styleClass="validate"
@@ -31,9 +33,7 @@
 													requiredMessage="Email cannot be empty"/>
 												<p:outputLabel for="newUserEmail" value="Email"
 													styleClass="active" />
-												<p:message for="newUserEmail"
-													styleClass="red darken-4 white-text center-align"
-													display="text" />
+												<sh:messageTag forElementID="newUserForm:newUserEmail" />
 											</div>
 
 											<div class="input-field col s12">
@@ -42,9 +42,7 @@
 													required="true" requiredMessage="Password cannot be empty" />
 												<p:outputLabel for="newUserPassword" value="Password"
 													styleClass="active" />
-												<p:message for="newUserPassword"
-													styleClass="red darken-4 white-text center-align"
-													display="text" />
+												<sh:messageTag forElementID="newUserForm:newUserPassword" />
 											</div>
 
 											<div class="input-field col s12">
