@@ -22,15 +22,20 @@
 					<h:graphicImage url="/images/logo/share-icon-png-25.png" width="65"/>
 				</a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="http://www.google.fr">Google</a></li>
 	
 					<ui:fragment rendered="#{loginBean.connected}">
 						<!-- Dropdown Trigger -->
 						<li><a class="dropdown-button" href="#!"
-							data-activates="dropdown1"> #{username} <i
-								class="material-icons right">arrow_drop_down</i>
+							data-activates="dropdown1"> #{username} 
+							<i class="material-icons right">arrow_drop_down</i>
 						</a></li>
 					</ui:fragment>
+					
+					<ui:fragment rendered="#{not loginBean.connected}">
+						<li><a href="login.xhtml">Log In</a></li>
+						<li><a href="newUser.xhtml" class="waves-effect waves-light btn">Sign Up</a></li>
+					</ui:fragment>
+					
 				</ul>
 			</div>
 		</nav>

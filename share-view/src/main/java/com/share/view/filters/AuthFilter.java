@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.share.view.constants.PageNames;
  
-@WebFilter(filterName = "AuthFilter", urlPatterns = {"/filtered/*"})
+//@WebFilter(filterName = "AuthFilter", urlPatterns = {"/filtered/*"})
 public class AuthFilter implements Filter {
      
 	
@@ -46,19 +46,19 @@ public class AuthFilter implements Filter {
             String reqURI = req.getRequestURI();
             
             
-            if (isUserConnected(ses)) {
-            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
-            		res.sendRedirect(req.getContextPath() + PageNames.INDEX_PAGE);
-            	} else {
-            		chain.doFilter(request, response);
-            	}
-            } else {
-            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
-            		chain.doFilter(request, response);
-            	} else {
-            		res.sendRedirect(req.getContextPath() + PageNames.LOGIN_PAGE + PageNames.FACES_REDIRECT);
-            	}
-            }
+//            if (isUserConnected(ses)) {
+//            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
+//            		res.sendRedirect(req.getContextPath() + PageNames.INDEX_PAGE);
+//            	} else {
+//            		chain.doFilter(request, response);
+//            	}
+//            } else {
+//            	if (reqURI.contains(PageNames.LOGIN_PAGE) || reqURI.contains(PageNames.NEW_USER_PAGE)) {
+//            		chain.doFilter(request, response);
+//            	} else {
+//            		res.sendRedirect(req.getContextPath() + PageNames.LOGIN_PAGE + PageNames.FACES_REDIRECT);
+//            	}
+//            }
             
       }
      catch(Throwable t) {

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.share.common.annotations.exceptions.DatabaseException;
 import com.share.common.annotations.exceptions.LoginAlreadyExistsException;
+import com.share.common.validations.EmailValidator;
 import com.share.security.login.NewUser;
 import com.share.view.constants.PageNames;
 import com.share.view.utils.Util;
@@ -29,6 +30,8 @@ public class NewUserBean implements Serializable {
     
     @Inject
     private NewUser newUser;
+    @Inject
+    private EmailValidator emailValidator;
  
     public String getEmailAddress() {
 		return emailAddress;
@@ -64,6 +67,12 @@ public class NewUserBean implements Serializable {
 	
 	public String addUser() {
 		String result = PageNames.INDEX_PAGE + PageNames.FACES_REDIRECT;
+		
+		if (!emailValidator.validateEmail(emailAddress)) {
+    		FacesContext.getCurrentInstance().addMessage("newUserForm:newUserEmail", new FacesMessage("Invalid Email format"));
+            return null;
+    	}
+		
 		try {
 			newUser.addNewUser(emailAddress, password, firstName, lastName);
 			HttpSession session = Util.getSession();

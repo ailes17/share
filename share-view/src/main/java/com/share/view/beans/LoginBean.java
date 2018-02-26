@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
+import com.share.common.validations.EmailValidator;
 import com.share.security.login.Login;
 import com.share.view.constants.PageNames;
 import com.share.view.utils.Util;
@@ -23,6 +24,8 @@ public class LoginBean implements Serializable {
     
     @Inject
     private Login login;
+    @Inject
+    private EmailValidator emailValidator;
  
     public String getPassword() {
         return password;
@@ -42,6 +45,11 @@ public class LoginBean implements Serializable {
     
  
     public String loginProject() {
+    	if (!emailValidator.validateEmail(uname)) {
+    		FacesContext.getCurrentInstance().addMessage("loginForm:email", new FacesMessage("Invalid Email format"));
+            return null;
+    	}
+    	
         boolean result = login.login(uname, password);
         if (result) {
 
